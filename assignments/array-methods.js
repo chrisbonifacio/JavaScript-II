@@ -489,17 +489,17 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 // Create an array of donators that donated between $50 - $100, logging their first, last names, and how much they donated
-let betweenFiftyAndHundred = runners
-  .filter(function(item) {
+function getDonationRange() {
+  let newArray = runners.filter(function(item) {
     return item.donation >= 50 && item.donation <= 100;
-  })
-  .forEach(function(item) {
-    console.log(
-      `${item.first_name} ${item.last_name} donated $${item.donation}`
-    );
   });
 
-console.log(betweenFiftyAndHundred);
+  return newArray.forEach(x => {
+    console.log(`${x.first_name} ${x.last_name} donated: $${x.donation}`);
+  });
+}
+
+getDonationRange();
 // Problem 2
 
 // Problem 3
