@@ -1,6 +1,16 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
-const items = ["Pencil", "Notebook", "yo-yo", "Gum"];
+const items = [
+  "Pencil",
+  "Notebook",
+  "yo-yo",
+  "Gum",
+  "Test Item",
+  "Pencil",
+  "Gum",
+  "yo-yo",
+  "Notebook"
+];
 
 /* 
 
@@ -61,7 +71,7 @@ multiplyNums(12, 12, function(product) {
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
-  cb(list.includes(item));
+  return cb(list.includes(item));
   // Pass true to the callback if it is, otherwise pass false.
 }
 
@@ -75,4 +85,12 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let newArray = array.filter(function(item, index) {
+    return array.indexOf(item) === index;
+  });
+  return cb(newArray);
 }
+
+removeDuplicates(items, function(test) {
+  console.log(test);
+});
