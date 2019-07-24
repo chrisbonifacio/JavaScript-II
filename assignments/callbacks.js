@@ -2,13 +2,14 @@
 
 const items = [
   "Pencil",
+  "Test Item",
   "Notebook",
   "yo-yo",
   "Gum",
-  "Test Item",
   "Pencil",
   "Gum",
   "yo-yo",
+  "Test Item",
   "Notebook"
 ];
 
@@ -83,11 +84,15 @@ contains("yo-yo", items, function(test) {
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
+  // we use filter() to return a new array of items that meet a condition
   let newArray = array.filter(function(item, index) {
+    // for the condition we use indexOf() to return the first index of the item passed as an argument,
+    // and checks if it's index matches the current index in the loop. Only the first item will match and be added to the new array. The duplicates further in the array have indexes that don't match the first found item so they return false and do not get added.
     return array.indexOf(item) === index;
   });
+  // Pass the duplicate free array to the callback function.
   return cb(newArray);
 }
 
