@@ -526,3 +526,9 @@ function findTopDonator() {
 console.log(findTopDonator());
 
 // Problem 3
+// Create an email list for all donators
+let emailList = runners.map(function(item) {
+  return item.email;
+});
+
+console.log(emailList);
