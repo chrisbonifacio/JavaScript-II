@@ -500,6 +500,29 @@ function getDonationRange() {
 }
 
 getDonationRange();
+
 // Problem 2
+// Filter the array of donators to find the person who donated the largest amount. Log a message acknowleding that donator
+function findTopDonator() {
+  let max = runners[0].donation;
+  console.log(max);
+  runners.forEach(function(item) {
+    if (item.donation > max) {
+      max = item.donation;
+    }
+  });
+
+  let topDonator = runners.filter(function(donator) {
+    return donator.donation >= max;
+  });
+
+  //   console.log(topDonator);
+
+  return `The current top donator is ${topDonator[0].first_name} ${
+    topDonator[0].last_name
+  } with a very generous amount of $${topDonator[0].donation}!`;
+}
+
+console.log(findTopDonator());
 
 // Problem 3
